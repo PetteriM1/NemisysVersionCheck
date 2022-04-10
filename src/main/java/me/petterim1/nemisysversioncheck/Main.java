@@ -23,7 +23,8 @@ public class Main extends PluginBase implements Listener {
     public void onJoin(PlayerLoginEvent e) {
         Player p = e.getPlayer();
         if (p.raknetProtocol < protocol) {
-            p.close(message, true);
+            e.setKickMessage(message);
+            e.setCancelled(true);
         }
     }
 }
